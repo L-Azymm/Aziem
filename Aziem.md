@@ -61,8 +61,6 @@
     Identify which protocols transmit data in plaintext and which use encryption.
 
 
-
-
     Provide evidence (e.g., screenshots) to prove which protocols are secure and which are not.
     FTP
 
