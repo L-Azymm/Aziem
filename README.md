@@ -18,11 +18,11 @@
 1. Run the following command on **Kali Linux** to find the Metasploitable2 IP:
    ```bash
    netdiscover
-or
+or:
    ```bash
    nmap -sn 192.168.154.0/24
    ```
-or
+or:
 
 Use this command on Metasploitable2:
    ```bash
