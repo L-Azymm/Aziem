@@ -42,6 +42,10 @@ Initial usernames used for brute force attacks were manually prepared in a file 
 - test
 - guest
 
+1.2 Prepare a text file with potential passwords:
+
+   vim password.txt
+   
 
 # 2. Brute Force Attacks🥖
 
