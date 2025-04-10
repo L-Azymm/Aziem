@@ -19,15 +19,15 @@
    ```bash
    netdiscover
 or
-
-    nmap -sn 192.168.154.0/24
-
+   ```bash
+   nmap -sn 192.168.154.0/24
+   ```
 or
 
 Use this command on Metasploitable2:
-
-    ifconfig
-
+   ```bash
+   ifconfig
+   ```
 # 1. Enumeration of Usernames🥐
 
 Initial usernames used for brute force attacks were manually prepared in a file usernames.txt:
