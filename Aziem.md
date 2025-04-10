@@ -1,29 +1,49 @@
-**Labwork 1:👾Brute Force and Sniffing**
-    
-**🔨Tools Used**
-   
-Hydra – for brute force attacks
 
-Wireshark – for sniffing and analyzing traffic
 
-Kali Linux – attacker machine
+# 💻 Labwork 1: Brute Force and Sniffing
 
-Metasploitable2 – vulnerable target machine
+---
 
-ftp, telnet, ssh – for manual login and testing
+## 🧰 Tools Used
+- **Hydra** – for performing brute force attacks  
+- **Wireshark** – for capturing and analyzing network traffic  
+- **Kali Linux** – used as the attacker machine  
+- **Metasploitable2** – vulnerable virtual machine  
+- **FTP, Telnet, SSH** – services used for login and analysis  
 
-**Finding the Metasploit IP**
+---
 
-**1. Enumeration of Usernames🥐**
-    Initial usernames used for brute force attacks were manually prepared in a file usernames.txt:
-    - msfadmin
-    - user
-    - admin
-    - root
-    - test
-    - guest
+## 📍 Target IP Enumeration
 
-**2. Brute Force Attacks🥖**
+1. Run the following command on **Kali Linux** to find the Metasploitable2 IP:
+   ```bash
+   netdiscover
+or
+
+    nmap -sn 192.168.154.0/24
+
+or
+
+Use this command on Metasploitable2:
+
+    ifconfig
+
+# 1. Enumeration of Usernames🥐
+
+Initial usernames used for brute force attacks were manually prepared in a file usernames.txt:
+1.1 Prepare a text file with potential usernames:
+
+    vim username.txt
+
+- msfadmin
+- user
+- admin
+- root
+- test
+- guest
+
+
+# 2. Brute Force Attacks🥖
 
 **2.1 FTP**
     - Tool: Hydra
@@ -33,6 +53,8 @@ ftp, telnet, ssh – for manual login and testing
 
 Result: Successful login found – msfadmin:msfadmin
 
+---
+
 **2.2 Telnet**
     - Tool: Hydra
     - Command Used:
@@ -41,7 +63,7 @@ Result: Successful login found – msfadmin:msfadmin
 
 Result: Successful login – msfadmin:msfadmin
 
-
+---
 
 **2.3 SSH**
     - Tool: Hydra
@@ -53,38 +75,60 @@ Problem: Hydra (or the SSH client it's using) doesn't support the older key exch
 
 
 
-**3. Sniffing Network Traffic🍖**
+# 3. Sniffing Network Traffic🍖
 
-    Use the recovered credentials to log in to the respective services
+**3.1 Start Wireshark on Kali**
+
+a) Open Wireshark
+
+b) Select the active network interface (e.g., eth0 or ens33).
+
+c) Start capturing
+
+---
+
+**3.2 FTP Login Traffic Analysis**
+
+a) Connect using:
+
+    ftp 192.168.154.133
+
+b) Login with: msfadmin:msfadmin
+
+c) In Wireshark, use filter:
+
+    ftp 
+
+---
+**3.3 Telnet Login Traffic Analysis**
+
+a) Connect using 
+
+    telnet 192.168.154.133
+
+b) Login with: msfadmin:msfadmin
+
+c) In Wireshark, use filter:
+
+    telnet
 
 
-    Use Wireshark or tcpdump to capture and analyze network traffic during the session.
 
+# 4.Problems Encountered🍕
 
-    Identify which protocols transmit data in plaintext and which use encryption.
+| Protocol | Problem | Solution |
+|----------|---------|----------|
+|FTP	   |None	 |N/A
+|Telnet|	Service was off initially	|Enabled Telnet on Metasploitable2
+|SSH	|Hydra connection failed due to key mismatch	|
 
+# 5.Mitigation Strategies🍥
 
-    Provide evidence (e.g., screenshots) to prove which protocols are secure and which are not.
-    FTP
-
-
-**Telnet**
-
-
-
-**4.Problems Encountered**
-
-    Protocol	Problem	Solution
-    FTP	None	N/A
-    Telnet	Service was off initially	Enabled Telnet on Metasploitable2
-    SSH	Hydra connection failed due to key mismatch	Added weak algorithm support in SSH config
-
-**5.Mitigation Strategies**
-
-    Protocol	Vulnerability	Secure Alternative	Why it’s better
-    FTP	Sends credentials in plaintext	SFTP / FTPS	Encrypts file transfer data and credentials
-    Telnet	Transmits all in plaintext	SSH	SSH encrypts communication
-    SSH	Still brute-forceable	Use key-based login, strong passwords	Prevents brute force access
+| Protocol | Vulnerability | Secure Alternative	| Why it’s better|
+|-----------|-------------|---------------------|---------------|
+|FTP	|Sends credentials in plaintext	|SFT2P / FTPS|	Encrypts file transfer data and credentials
+|Telnet|	Transmits all in plaintext|	SSH	|SSH encrypts communication
+|SSH	|Still brute-forceable	|Use key-based login, strong passwords	|Prevents brute force access
 
 
 
