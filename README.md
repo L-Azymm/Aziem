@@ -148,7 +148,7 @@ c) In Wireshark, use filter:
 |Telnet|	Transmits all in plaintext|	SSH	|SSH encrypts communication
 |SSH	|Still brute-forceable	|Use key-based login, strong passwords	|Prevents brute force access
 
-**✅ Summary**
+# ✅ Summary
 - FTP and Telnet are insecure protocols that transmit credentials in plaintext.
 - Hydra can easily brute-force weak credentials.
 - SSH is secure but can still be targeted using brute-force unless hardened.
@@ -156,7 +156,7 @@ c) In Wireshark, use filter:
 - Always replace insecure services with encrypted alternatives like SSH or FTPS.
 - Apply proper access control, firewalls, and monitoring to reduce attack surfaces.
 
-**📚 References**
+# 📚 References
 Hydra GitHub Repository
 
 Wireshark Official Site
