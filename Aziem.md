@@ -1,11 +1,12 @@
 **Labwork 1:👾Brute Force and Sniffing**
     
 **🔨Tools Used**
-    Hydra – for brute force attacks
-    Wireshark – for sniffing and analyzing traffic
-    Kali Linux – attacker machine
-    Metasploitable2 – vulnerable target machine
-    ftp, telnet, ssh – for manual login and testing
+   
+Hydra – for brute force attacks
+Wireshark – for sniffing and analyzing traffic
+Kali Linux – attacker machine
+Metasploitable2 – vulnerable target machine
+ftp, telnet, ssh – for manual login and testing
 
 **Finding the Metasploit IP**
 
