@@ -44,8 +44,15 @@ Initial usernames used for brute force attacks were manually prepared in a file 
 
 1.2 Prepare a text file with potential passwords:
 
-   vim password.txt
-   
+      vim password.txt
+
+- msfadmin
+- user
+- admin
+- root
+- test
+- guest
+
 
 # 2. Brute Force Attacks🥖
 
