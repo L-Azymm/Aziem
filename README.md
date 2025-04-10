@@ -3,6 +3,13 @@
 # 💻 Labwork 1: Brute Force and Sniffing
 
 ---
+## 🎯 Objectives
+
+- Understand how brute-force attacks work on common network services (FTP, Telnet, SSH).
+- Practice using tools like Hydra for password attacks.
+- Learn how to use Wireshark to analyze network traffic.
+- Identify insecure protocols that transmit data in plaintext.
+- Propose secure alternatives and mitigation strategies.
 
 ## 🧰 Tools Used
 - **Hydra** – for performing brute force attacks  
