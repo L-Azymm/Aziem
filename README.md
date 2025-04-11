@@ -49,7 +49,6 @@ Initial usernames used for brute force attacks were manually prepared in a file 
 - test
 - guest
   
-![Screenshot](https://github.com/L-Azymm/Labwork-1/blob/Image/Screenshot%202025-04-08%20122646.png?raw=true)
 
 1.2 Prepare a text file with potential passwords:
 
@@ -61,6 +60,8 @@ Initial usernames used for brute force attacks were manually prepared in a file 
 - root
 - test
 - guest
+
+![Screenshot](https://github.com/L-Azymm/Labwork-1/blob/Image/Screenshot%202025-04-08%20122646.png?raw=true)
 
 
 # 2. Brute Force Attacks🥖
