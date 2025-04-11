@@ -1,5 +1,5 @@
 
-# 💻 Labwork 1: Brute Force and Sniffing
+#Brute Force and Sniffing
 
 ## 🎯 Objectives
 
