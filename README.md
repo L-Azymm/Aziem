@@ -1,5 +1,5 @@
 
-# Brute Force and Sniffing
+# Network Brute Force and Sniffing Walkthrough
 
 ## 🎯 Objectives
 
