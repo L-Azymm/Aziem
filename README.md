@@ -22,6 +22,7 @@
 
 ## 📍 Target IP Enumeration
 
+
 1. Run the following command on **Kali Linux** to find the Metasploitable2 IP:
    ```bash
    netdiscover
