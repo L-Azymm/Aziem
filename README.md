@@ -23,19 +23,19 @@
 ## 📍 Target IP Enumeration
 
 
-1. Run the following command on **Kali Linux** to find the Metasploitable2 IP:
-   ```bash
-   netdiscover
+Run the following command on **Kali Linux** to find the Metasploitable2 IP:
+
+      netdiscover
 or:
-   ```bash
-   nmap -sn 192.168.154.0/24
-   ```
+
+      nmap -sn 192.168.154.0/24
 or:
 
 Use this command on Metasploitable2:
-   ```bash
-   ifconfig
-   ```
+
+      ifconfig
+
+
 # 1. Enumeration of Usernames🥐
 
 Initial usernames used for brute force attacks were manually prepared in a file usernames.txt:
