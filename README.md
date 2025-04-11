@@ -1,6 +1,16 @@
 
+# 💻 Brute Force and Sniffing
 
-# 💻 Labwork 1: Brute Force and Sniffing
+## 📚 Table of Contents
+1. [Objectives](#-objectives)
+2. [Setup](#-setup)
+3. [Target IP Enumeration](#-target-ip-enumeration)
+4. [Brute Force Attacks](#2-brute-force-attacks)
+5. [Sniffing Traffic](#3-sniffing-network-traffic)
+6. [Problems Encountered](#4problems-encountered)
+7. [Mitigation Strategies](#5mitigation-strategies)
+8. [Summary](#-summary)
+
 
 ---
 ## 🎯 Objectives
@@ -11,7 +21,7 @@
 - Identify insecure protocols that transmit data in plaintext.
 - Propose secure alternatives and mitigation strategies.
 
-## 🧰 Tools Used
+## 🧰 Setup
 - **Hydra** – for performing brute force attacks  
 - **Wireshark** – for capturing and analyzing network traffic  
 - **Kali Linux** – used as the attacker machine  
@@ -32,6 +42,7 @@ or:
 nmap -sn 192.168.154.0/24
 ```
 or:
+
 Use this command on Metasploitable2:
 ```bash
 ifconfig
