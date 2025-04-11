@@ -160,13 +160,3 @@ c) In Wireshark, use filter:
 - Always replace insecure services with encrypted alternatives like SSH or FTPS.
 - Apply proper access control, firewalls, and monitoring to reduce attack surfaces.
 
-# 📚 References
-Hydra GitHub Repository
-
-Wireshark Official Site
-
-Metasploitable2 Documentation
-
-Kali Linux Tools Listing
-
-OpenSSH Key Exchange Info
