@@ -24,17 +24,18 @@
 
 
 Run the following command on **Kali Linux** to find the Metasploitable2 IP:
-
-      netdiscover
+```bash
+netdiscover
+```
 or:
-
-      nmap -sn 192.168.154.0/24
+```bash
+nmap -sn 192.168.154.0/24
+```
 or:
-
 Use this command on Metasploitable2:
-
-      ifconfig
-
+```bash
+ifconfig
+```
 
 # 1. Enumeration of Usernames🥐
 
