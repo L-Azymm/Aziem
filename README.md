@@ -17,7 +17,9 @@
 - **Wireshark** – for capturing and analyzing network traffic  
 - **Kali Linux** – used as the attacker machine  
 - **Metasploitable2** – vulnerable virtual machine  
-- **FTP, Telnet, SSH** – services used for login and analysis  
+- **FTP, Telnet, SSH** – services used for login and analysis
+  
+Note: Target IP may vary between screenshots based on network setup. In this lab, both 192.168.154.133 and 192.168.204.147 refer to the Metasploitable2 VM
 
 ---
 
@@ -160,6 +162,41 @@ hydra -l msfadmin -P passwords.txt telnet://192.168.154.133
 ```bash
 hydra -L usernames.txt -P passwords.txt ssh://192.168.154.133
 ```
+
+### 2.4 HTTPS
+
+#### Setup
+- Open Burp Suite
+  - Start Burp Suite on Kali Linux.
+    
+    ```bash
+    ~/jdk-21*/bin/java -jar burpsuite.jar
+    ```
+    
+  - Use a Temporary Project
+  - Burp Default
+  - Start Burp
+
+- Open the Target Login Page
+  - Example:
+    ```bash
+    http://testphp.vulnweb.com/login.php
+    ```
+
+  - Input credentials  (admin:password) and press Login.
+
+- In the **proxy** tab, you will see the request from the login page stating the username and the password 
+  - Send the request to the Intruder
+
+- Open the **Intruder** tab 
+  - select the username and password and click "Add" to mark them
+  - make sure tha attack type is set to **cluster**
+    
+- Go to **Payload** tab
+  - Add the wordlist that you want to use
+  - You will have 2 sets of payload each for username (Set 1) and password (Set 2)
+    
+
 
 ### Explanation:
 - `-L`: Load a list of usernames from a file.
