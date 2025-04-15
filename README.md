@@ -248,10 +248,44 @@ for example:
 
 and the password are not visible because telnet doesn't echo back the input
 
-Example of the input if the letter "m"
-![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20143826.png?raw=true)
+Example of the input of the letter:
+
+- "m"
+
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20171939.png?raw=true)
+
+- "s"
+
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20172005.png?raw=true)
+
+- "f"
+
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20172026.png?raw=true)
+
+- "a"
+
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20172108.png?raw=true)
+
+- "d"
+
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20172130.png?raw=true)
+
+- "m"
+
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20172145.png?raw=true)
+
+- "i"
+
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20172201.png?raw=true)
+
+- "n"
+
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20172212.png?raw=true)
+
+---
 
 Password not being visible
+
 ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20143910.png?raw=true)
 
 ### 3.4 SSH Login Traffic Analysis
@@ -262,6 +296,20 @@ What you need to know:
 This resulting in:
 - The username and password are encrypted when transmitted over the network.
 - Wireshark will not be able to capture the plaintext of the username or password.
+
+Run
+```
+ssh msfadmin@192.168.204.147
+```
+As we know the username of is "msfadmin"
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20173834.png?raw=true)
+
+In **wireshark** filter using:
+```bash
+tcp.port == 22
+```
+
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20173914.png?raw=true)
 
 Easy to say, **You can see but wont recognize**
 
