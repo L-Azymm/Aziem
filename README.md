@@ -265,6 +265,10 @@ Password
 
 ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20202919.png?raw=true)
 
+#### Explaination
+
+- A status code 200 with an unusually large response length likely indicates a successful login because it loads the full authenticated page, unlike failed attempts which return shorter responses
+
 ---
 
 ## 3. Sniffing Network Traffic🍖
