@@ -106,6 +106,9 @@ guest
 ---
 ### Built-in List
 Alternatively, you can use rockyou.txt, which is a popular wordlist for brute-force attacks, typically found in /usr/share/wordlists/rockyou.txt in Kali Linux. To use it with Hydra, you can run the following:
+
+Example of FTP hydra using rockyou.txt wordlist:
+
 ```bash
 hydra -L usernames.txt -P /usr/share/wordlists/rockyou.txt ftp://192.168.154.133
 ```
