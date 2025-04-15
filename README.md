@@ -201,7 +201,7 @@ Results: ACCOUNT FOUND: [ssh] Host: 192.168.204.147 User: msfadmin Password: msf
   
   - In the **Proxy** tab, turn on the intercept
     
-![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20204722.png?raw=true)
+    ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20204722.png?raw=true)
 
     
 ---
@@ -218,13 +218,13 @@ Results: ACCOUNT FOUND: [ssh] Host: 192.168.204.147 User: msfadmin Password: msf
 
   - In **Proxy** tab, foward the login request
     
-![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20205121.png?raw=true)
+    ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20205121.png?raw=true)
 
   - For this lab, enter a wrong username and password first
     
     - Example: admin:password
       
-![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20202556.png?raw=true)
+      ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20202556.png?raw=true)
 
 ---
 
@@ -232,7 +232,7 @@ Results: ACCOUNT FOUND: [ssh] Host: 192.168.204.147 User: msfadmin Password: msf
   
   - Send the request to the Intruder
     
-![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20205307.png?raw=true)
+    ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20205307.png?raw=true)
 
 ---
 - Open the **Intruder** tab
@@ -242,7 +242,7 @@ Results: ACCOUNT FOUND: [ssh] Host: 192.168.204.147 User: msfadmin Password: msf
   - select the username and password and click "Add" to mark them
 
 
-![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20203025.png?raw=true)
+    ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20203025.png?raw=true)
 
 ---
 - Go to **Payload** tab
@@ -277,7 +277,7 @@ Password
   
 - Start capturing.
   
-![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20133655.png?raw=true)
+  ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20133655.png?raw=true)
 
 ### 3.2 FTP Login Traffic Analysis
 
@@ -289,7 +289,7 @@ Example: Target ip is 192.168.204.147
 ftp 192.168.204.147
 ```
 
-![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20134224.png?raw=true)
+  ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20134224.png?raw=true)
 
 - Login with: `msfadmin:msfadmin`
 
@@ -298,7 +298,7 @@ ftp 192.168.204.147
 ```bash
 ftp
 ```
-![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20134309.png?raw=true)
+  ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20134309.png?raw=true)
 
 From the info, you can see:
 
@@ -321,7 +321,7 @@ From the info, you can see:
 ```bash
 telnet 192.168.204.147
 ```
-![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20135432.png?raw=true)
+  ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20135432.png?raw=true)
 
 - Login with: `msfadmin:msfadmin`
 
