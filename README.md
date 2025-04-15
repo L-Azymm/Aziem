@@ -176,7 +176,7 @@ medusa -h 192.168.204.147 -U usernames.txt -P passwords.txt -M ssh
 Results: ACCOUNT FOUND: [ssh] Host: 192.168.204.147 User: msfadmin Password: msfadmin [SUCCESS]
 
 
-### 2.4 HTTPS
+### 2.4 HTTP
 
 #### Setup
 
@@ -426,7 +426,7 @@ Easy to say, **You can see but wont recognize**
 |----------|---------|----------|
 | FTP      | None    | N/A      |
 | Telnet   | Service was off initially | Enabled Telnet on Metasploitable2 |
-| SSH      | Hydra connection failed due to key mismatch or outdated program | N/A |
+| SSH      | Hydra connection failed due to key mismatch or outdated program | Use Hydra |
 
 ---
 
@@ -437,6 +437,7 @@ Easy to say, **You can see but wont recognize**
 | FTP      | Sends credentials in plaintext | SFTP / FTPS | Encrypts file transfer data and credentials |
 | Telnet   | Transmits all in plaintext | SSH | SSH encrypts communication |
 | SSH      | Still brute-forceable | Use key-based login, strong passwords | Prevents brute force access |
+| HTTP     | Data sent in Plaintext | HTTPS | Data is encrypted |
 
 ---
 
