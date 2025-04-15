@@ -352,8 +352,6 @@ for example:
 - i
 - n
 
-and the password are not visible because telnet doesn't echo back the input
-
 Example of the input of the letter:
 
 - "m"
