@@ -178,7 +178,7 @@ hydra -L usernames.txt -P passwords.txt ssh://192.168.154.133
 - Connect using:
 
 ```bash
-ftp 192.168.154.133
+ftp 192.168.204.147
 ```
 
 - Login with: `msfadmin:msfadmin`
@@ -196,7 +196,7 @@ ftp
 - Connect using:
 
 ```bash
-telnet 192.168.154.133
+telnet 192.168.204.147
 ```
 
 - Login with: `msfadmin:msfadmin`
