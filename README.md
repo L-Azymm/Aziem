@@ -175,6 +175,8 @@ hydra -L usernames.txt -P passwords.txt ssh://192.168.154.133
 
 ### 3.2 FTP Login Traffic Analysis
 
+Example: Target ip is 192.168.204.147
+
 - Connect using:
 
 ```bash
@@ -206,6 +208,30 @@ telnet 192.168.204.147
 ```bash
 telnet
 ```
+or (for clearer capture)
+```bash
+telnet && ip.src == 192.168.204.147
+```
+### Reminder
+Telnet doesn't show the imput for username directly but instead shows in frames by frames for each letter
+for example:
+- m
+- s
+- f
+- a
+- d
+- m
+- i
+- n
+
+and the password are not visible because telnet doesn't echo back the input
+
+Example of the input if the letter "m"
+
+
+Password not being visible
+
+
 
 ---
 
@@ -215,7 +241,7 @@ telnet
 |----------|---------|----------|
 | FTP      | None    | N/A      |
 | Telnet   | Service was off initially | Enabled Telnet on Metasploitable2 |
-| SSH      | Hydra connection failed due to key mismatch | Use updated SSH client or fix key exchange settings on the target machine |
+| SSH      | Hydra connection failed due to key mismatch or outdated program | N/A |
 
 ---
 
