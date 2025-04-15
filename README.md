@@ -28,6 +28,7 @@ Use Nmap to identify running services on the target:
 ```bash
 nmap -sV -p 21,22,23 192.168.154.133
 ```
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20124316.png?raw=true)
 
 ### Explanation:
 - `-sV`: Version detection (shows service version like vsftpd, OpenSSH)
@@ -47,18 +48,21 @@ Run the following command on **Kali Linux** to find the Metasploitable2 IP:
 ```bash
 netdiscover
 ```
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20125108.png?raw=true)
 
 Or:
 
 ```bash
 nmap -sn 192.168.154.0/24
 ```
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20125217.png?raw=true)
 
 Alternatively, on **Metasploitable2**:
 
 ```bash
 ifconfig
 ```
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20125237.png?raw=true)
 
 ---
 
@@ -103,6 +107,9 @@ Alternatively, you can use rockyou.txt, which is a popular wordlist for brute-fo
 ```bash
 hydra -L usernames.txt -P /usr/share/wordlists/rockyou.txt ftp://192.168.154.133
 ```
+
+---
+
 ## 2. Brute Force Attacks🥖
 
 ### 2.1 FTP
@@ -172,6 +179,8 @@ hydra -L usernames.txt -P passwords.txt ssh://192.168.154.133
 - Open **Wireshark**.
 - Select the active network interface (e.g., eth0 or ens33).
 - Start capturing.
+  
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20133655.png?raw=true)
 
 ### 3.2 FTP Login Traffic Analysis
 
@@ -183,6 +192,8 @@ Example: Target ip is 192.168.204.147
 ftp 192.168.204.147
 ```
 
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20134224.png?raw=true)
+
 - Login with: `msfadmin:msfadmin`
 
 - In **Wireshark**, use the filter:
@@ -190,6 +201,14 @@ ftp 192.168.204.147
 ```bash
 ftp
 ```
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20134309.png?raw=true)
+
+From the info, you can see:
+- FTP server is ready. The server responds with its banner/version.
+- USER (username): msfadmin
+- The server acknowledges and asks for the password
+- PASS (password): msfadmin
+- A successful login
 
 ---
 
@@ -200,6 +219,7 @@ ftp
 ```bash
 telnet 192.168.204.147
 ```
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20135432.png?raw=true)
 
 - Login with: `msfadmin:msfadmin`
 
@@ -212,6 +232,8 @@ or (for clearer capture)
 ```bash
 telnet && ip.src == 192.168.204.147
 ```
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20143826.png?raw=true)
+
 ### Reminder
 Telnet doesn't show the imput for username directly but instead shows in frames by frames for each letter
 for example:
@@ -227,9 +249,10 @@ for example:
 and the password are not visible because telnet doesn't echo back the input
 
 Example of the input if the letter "m"
-
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20143826.png?raw=true)
 
 Password not being visible
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20143910.png?raw=true)
 
 ### 3.4 SSH Login Traffic Analysis
 What you need to know:
