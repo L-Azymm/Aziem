@@ -231,7 +231,19 @@ Example of the input if the letter "m"
 
 Password not being visible
 
+### 3.4 SSH Login Traffic Analysis
+What you need to know:
+- SSH is a secure, encrypted protocol designed to replace older, insecure protocols like Telnet.
+- Unlike Telnet, SSH encrypts all data sent over the network, including the username, password, and any commands or output.
 
+This resulting in:
+- The username and password are encrypted when transmitted over the network.
+- Wireshark will not be able to capture the plaintext of the username or password.
+
+Easy to say, **You can see but wont recognize**
+
+*"Things are not always what they seem; the first appearance deceives many."*
+— Phaedrus
 
 ---
 
