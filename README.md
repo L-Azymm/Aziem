@@ -170,7 +170,7 @@ hydra -L usernames.txt -P passwords.txt ssh://192.168.154.133
   - Start Burp Suite on Kali Linux.
     
     ```bash
-    ~/jdk-21*/bin/java -jar burpsuite.jar
+    burpsuite
     ```
 
 ---
@@ -181,7 +181,14 @@ hydra -L usernames.txt -P passwords.txt ssh://192.168.154.133
     
 ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20191451.png?raw=true)  
 
+---
 
+- Intercept
+  - In the **Proxy** tab, turn on the intercept
+    
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20204722.png?raw=true)
+
+    
 ---
 
 - Open the Target Login Page
@@ -191,13 +198,22 @@ hydra -L usernames.txt -P passwords.txt ssh://192.168.154.133
     ```
     ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20202556.png?raw=true)
 
-  - Input credentials  (admin:password) and press Login.
+  - In **Proxy** tab, foward the login request
+    
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20205121.png?raw=true)
+
+  - For this lab, enter a wrong username and password first
+    - Example: admin:password
+      
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20202556.png?raw=true)
 
 ---
 
 - In the **proxy** tab, you will see the request from the login page stating the username and the password 
   - Send the request to the Intruder
     
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20205307.png?raw=true)
+
 ---
 - Open the **Intruder** tab 
   - make sure tha attack type is set to **cluster**
