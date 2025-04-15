@@ -160,12 +160,23 @@ hydra -l msfadmin -P passwords.txt telnet://192.168.154.133
 - **Command**:
 
 ```bash
-hydra -L usernames.txt -P passwords.txt ssh://192.168.154.133
+medusa -h 192.168.204.147 -U usernames.txt -P passwords.txt -M ssh
 ```
+### Explaination
+- `-h`: Target host (your Metasploitable IP)
+- `-U`: File containing usernames
+- `-P`: 	File containing passwords
+- `-M`: Module to use – in this case, ssh for brute-forcing SSH login
+  
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20210422.png?raw=true)
+
+Results: ACCOUNT FOUND: [ssh] Host: 192.168.204.147 User: msfadmin Password: msfadmin [SUCCESS]
+
 
 ### 2.4 HTTPS
 
 #### Setup
+
 - Open Burp Suite
   - Start Burp Suite on Kali Linux.
     
@@ -184,6 +195,7 @@ hydra -L usernames.txt -P passwords.txt ssh://192.168.154.133
 ---
 
 - Intercept
+  
   - In the **Proxy** tab, turn on the intercept
     
 ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20204722.png?raw=true)
@@ -192,10 +204,13 @@ hydra -L usernames.txt -P passwords.txt ssh://192.168.154.133
 ---
 
 - Open the Target Login Page
+  
   - Example:
+    
     ```bash
     http://testphp.vulnweb.com/login.php
     ```
+    
     ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20202556.png?raw=true)
 
   - In **Proxy** tab, foward the login request
@@ -203,20 +218,24 @@ hydra -L usernames.txt -P passwords.txt ssh://192.168.154.133
 ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20205121.png?raw=true)
 
   - For this lab, enter a wrong username and password first
+    
     - Example: admin:password
       
 ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20202556.png?raw=true)
 
 ---
 
-- In the **proxy** tab, you will see the request from the login page stating the username and the password 
+- In the **proxy** tab, you will see the request from the login page stating the username and the password
+  
   - Send the request to the Intruder
     
 ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20205307.png?raw=true)
 
 ---
-- Open the **Intruder** tab 
+- Open the **Intruder** tab
+  
   - make sure tha attack type is set to **cluster**
+    
   - select the username and password and click "Add" to mark them
 
 
@@ -224,17 +243,23 @@ hydra -L usernames.txt -P passwords.txt ssh://192.168.154.133
 
 ---
 - Go to **Payload** tab
+  
   - Add the wordlist that you want to use
+    
   - You will have 2 sets of payload each for username (Set 1) and password (Set 2)
 
 Username
+
 ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20202644.png?raw=true)
 
 Password
+
 ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20202654.png?raw=true)
 
 ---
+
 #### The Output of The attack
+
 ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20202919.png?raw=true)
 
 ---
@@ -244,7 +269,9 @@ Password
 ### 3.1 Start Wireshark on Kali
 
 - Open **Wireshark**.
+  
 - Select the active network interface (e.g., eth0 or ens33).
+  
 - Start capturing.
   
 ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20133655.png?raw=true)
@@ -271,10 +298,15 @@ ftp
 ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20134309.png?raw=true)
 
 From the info, you can see:
+
 - FTP server is ready. The server responds with its banner/version.
+  
 - USER (username): msfadmin
+  
 - The server acknowledges and asks for the password
+  
 - PASS (password): msfadmin
+  
 - A successful login
 
 ---
