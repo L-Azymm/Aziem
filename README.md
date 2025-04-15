@@ -156,7 +156,7 @@ hydra -l msfadmin -P passwords.txt telnet://192.168.154.133
 ---
 
 ### 2.3 SSH
-- **Tool**: Hydra
+- **Tool**: Medusa
 - **Command**:
 
 ```bash
@@ -172,40 +172,54 @@ hydra -L usernames.txt -P passwords.txt ssh://192.168.154.133
     ```bash
     ~/jdk-21*/bin/java -jar burpsuite.jar
     ```
-    
+
+---
+
   - Use a Temporary Project
   - Burp Default
   - Start Burp
+    
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20191451.png?raw=true)  
+
+
+---
 
 - Open the Target Login Page
   - Example:
     ```bash
     http://testphp.vulnweb.com/login.php
     ```
+    ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20202556.png?raw=true)
 
   - Input credentials  (admin:password) and press Login.
 
+---
+
 - In the **proxy** tab, you will see the request from the login page stating the username and the password 
   - Send the request to the Intruder
-
-- Open the **Intruder** tab 
-  - select the username and password and click "Add" to mark them
-  - make sure tha attack type is set to **cluster**
     
+---
+- Open the **Intruder** tab 
+  - make sure tha attack type is set to **cluster**
+  - select the username and password and click "Add" to mark them
+
+
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20203025.png?raw=true)
+
+---
 - Go to **Payload** tab
   - Add the wordlist that you want to use
   - You will have 2 sets of payload each for username (Set 1) and password (Set 2)
-    
 
+Username
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20202644.png?raw=true)
 
-### Explanation:
-- `-L`: Load a list of usernames from a file.
-- `-P`: Load a list of passwords from a file.
-- `ssh://`: Specifies the SSH service and target IP.
+Password
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20202654.png?raw=true)
 
-**Problem**: Hydra (or the SSH client it's using) doesn't support the older key exchange algorithms used by the Meta2 machine, which is very outdated.
-
-![Screenshot](https://github.com/L-Azymm/Labwork-1/blob/Image/Screenshot%202025-04-08%20125923.png?raw=true)
+---
+#### The Output of The attack
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20202919.png?raw=true)
 
 ---
 
