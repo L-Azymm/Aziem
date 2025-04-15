@@ -95,6 +95,8 @@ root
 test
 guest
 ```
+![Screenshot](https://github.com/L-Azymm/Labwork-1/blob/Image/Screenshot%202025-04-08%20122646.png?raw=true)
+
 ---
 ### Built-in List
 Alternatively, you can use rockyou.txt, which is a popular wordlist for brute-force attacks, typically found in /usr/share/wordlists/rockyou.txt in Kali Linux. To use it with Hydra, you can run the following:
@@ -116,9 +118,10 @@ hydra -L usernames.txt -P passwords.txt ftp://192.168.154.133
 - `-P`: Load a list of passwords from a file.
 - `ftp://`: Specifies the FTP service and target IP.
 
+![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-08%20122731.png?raw=true)
+
 **Result**: Successful login found – `msfadmin:msfadmin`
 
-![Screenshot](https://github.com/L-Azymm/Labwork-1/blob/Image/Screenshot%202025-04-08%20122646.png?raw=true)
 
 ---
 
@@ -135,9 +138,11 @@ hydra -l msfadmin -P passwords.txt telnet://192.168.154.133
 - `-P`: Load a list of passwords from a file.
 - `telnet://`: Specifies the Telnet service and target IP.
 
+![Screenshot](https://github.com/L-Azymm/Labwork-1/blob/Image/Screenshot%202025-04-08%20124126.png?raw=true)
+
+
 **Result**: Successful login – `msfadmin:msfadmin`
 
-![Screenshot](https://github.com/L-Azymm/Labwork-1/blob/Image/Screenshot%202025-04-08%20124126.png?raw=true)
 
 ---
 
