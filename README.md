@@ -251,13 +251,13 @@ Results: ACCOUNT FOUND: [ssh] Host: 192.168.204.147 User: msfadmin Password: msf
     
   - You will have 2 sets of payload each for username (Set 1) and password (Set 2)
 
-Username
+    Username
+    
+    ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20202644.png?raw=true)
 
-![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20202644.png?raw=true)
-
-Password
-
-![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20202654.png?raw=true)
+    Password
+    
+    ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20202654.png?raw=true)
 
 ---
 
