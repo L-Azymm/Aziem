@@ -316,6 +316,7 @@ From the info, you can see:
   
 - A successful login
 
+- For more clear info, you can rightclick and click "Follow"
 ---
 
 ### 3.3 Telnet Login Traffic Analysis
@@ -351,6 +352,9 @@ for example:
 - m
 - i
 - n
+
+- For more clear info, you can rightclick and click "Follow"
+
 
 Example of the input of the letter:
 
@@ -388,7 +392,7 @@ Example of the input of the letter:
 
 ---
 
-Password not being visible
+Password:
 
 ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20143910.png?raw=true)
 
