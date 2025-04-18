@@ -16,7 +16,7 @@
 
 ## 🧰 Setup
 
-- **Hydra** – for performing brute force attacks  
+- **Hydra** & **Medusa** – for performing brute force attacks  
 - **Wireshark** – for capturing and analyzing network traffic  
 - **Kali Linux** – used as the attacker machine  
 - **Metasploitable2** – vulnerable virtual machine  
