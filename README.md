@@ -58,7 +58,7 @@ netdiscover
 Or:
 
 ```bash
-nmap -sn 192.168.154.0/24
+nmap -sn <IP Address>
 ```
 ![Screenshot](https://github.com/L-Azymm/Aziem/blob/Image/Screenshot%202025-04-15%20125217.png?raw=true)
 
